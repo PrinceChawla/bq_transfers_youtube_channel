@@ -1,4 +1,4 @@
-connection: "bigquery-connectors-youtube-channel-owner"
+connection: "dv-looker-poc"
 
 # include all the views
 include: "*.view"
@@ -6,7 +6,7 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-explore: channel_combined_a2_ycr {
+explore: channel_combined_a2__aa {
   label: "YouTube Channel"
   view_label: "YouTube"
 
@@ -14,8 +14,9 @@ explore: channel_combined_a2_ycr {
     view_label: "Annotations"
     relationship: many_to_one
     type: left_outer
-    sql_on: ${channel_combined_a2_ycr.video_id} = ${video_annotation_facts.video_id} and
-      ${channel_combined_a2_ycr.date} = ${video_annotation_facts.date};;
+    sql_on: ${channel_combined_a2__aa.video_id} = ${video_annotation_facts.video_id} and
+      ${channel_combined_a2__aa.date} = ${video_annotation_facts.date};;
+      # ${channel_combined_a2_ycr.date} = ${video_annotation_facts.date};;
   }
 
   join: video_playlist_facts {
@@ -30,8 +31,8 @@ explore: channel_combined_a2_ycr {
     view_label: "YouTube"
     relationship: many_to_one
     type: left_outer
-    sql_on: ${channel_combined_a2_ycr.video_id} = ${video_facts.video_id} ;;
+    sql_on: ${channel_combined_a2__aa.video_id} = ${video_facts.video_id} ;;
   }
 }
 
-explore: channel_traffic_source_a2_ycr {}
+explore: channel_traffic_source_a2__aa {}

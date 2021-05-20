@@ -1,5 +1,5 @@
-view: channel_cards_a1_ycr {
-  sql_table_name: youtube_channel_reports.channel_cards_a1_ycr ;;
+view: channel_cards_a1__aa {
+  sql_table_name: youtube_channel_reports.channel_cards_a1__aa ;;
 
   dimension_group: _data {
     type: time

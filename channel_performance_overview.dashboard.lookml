@@ -10,12 +10,12 @@
     title: total_views
     type: single_value
     model: youtube_channel_owner
-    explore: channel_combined_a2_ycr
-    measures: [channel_combined_a2_ycr.total_views, channel_combined_a2_ycr.avg_view_duration_percentage,
-      channel_combined_a2_ycr.total_watch_time_minutes]
+    explore: channel_combined_a2__aa
+    measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
+      channel_combined_a2__aa.total_watch_time_minutes]
     filters:
-      channel_combined_a2_ycr._data_date: 7 days
-    sorts: [channel_combined_a2_ycr.total_views desc]
+      channel_combined_a2__aa._data_date: 7 days
+    sorts: [channel_combined_a2__aa.total_views desc]
     limit: '10'
     column_limit: '50'
     query_timezone: America/Los_Angeles
@@ -60,7 +60,7 @@
     series_types: {}
     colors: ['palette: Santa Cruz']
     series_colors: {}
-    hidden_fields: [channel_combined_a2_ycr.avg_view_duration_percentage, channel_combined_a2_ycr.total_watch_time_minutes]
+    hidden_fields: [channel_combined_a2__aa.avg_view_duration_percentage, channel_combined_a2__aa.total_watch_time_minutes]
 
 
 
@@ -70,12 +70,12 @@
     title: Overall Engagement
     type: single_value
     model: youtube_channel_owner
-    explore: channel_combined_a2_ycr
-    measures: [channel_combined_a2_ycr.total_views, channel_combined_a2_ycr.avg_view_duration_percentage,
-      channel_combined_a2_ycr.total_watch_time_minutes]
+    explore: channel_combined_a2__aa
+    measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
+      channel_combined_a2__aa.total_watch_time_minutes]
     filters:
-      channel_combined_a2_ycr._data_date: 7 days
-    sorts: [channel_combined_a2_ycr.total_views desc]
+      channel_combined_a2__aa._data_date: 7 days
+    sorts: [channel_combined_a2__aa.total_views desc]
     limit: '10'
     column_limit: '50'
     query_timezone: America/Los_Angeles
@@ -120,19 +120,19 @@
     series_types: {}
     colors: ['palette: Santa Cruz']
     series_colors: {}
-    hidden_fields: [channel_combined_a2_ycr.total_views, channel_combined_a2_ycr.total_watch_time_minutes]
+    hidden_fields: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.total_watch_time_minutes]
 
 
   - name: total_minutes_watched
     title: Total Minutes Watched
     type: single_value
     model: youtube_channel_owner
-    explore: channel_combined_a2_ycr
-    measures: [channel_combined_a2_ycr.total_views, channel_combined_a2_ycr.avg_view_duration_percentage,
-      channel_combined_a2_ycr.total_watch_time_minutes]
+    explore: channel_combined_a2__aa
+    measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
+      channel_combined_a2__aa.total_watch_time_minutes]
     filters:
-      channel_combined_a2_ycr._data_date: 7 days
-    sorts: [channel_combined_a2_ycr.total_views desc]
+      channel_combined_a2__aa._data_date: 7 days
+    sorts: [channel_combined_a2__aa.total_views desc]
     limit: '10'
     column_limit: '50'
     query_timezone: America/Los_Angeles
@@ -177,4 +177,4 @@
     series_types: {}
     colors: ['palette: Santa Cruz']
     series_colors: {}
-    hidden_fields: [channel_combined_a2_ycr.total_views, channel_combined_a2_ycr.avg_view_duration_percentage]
+    hidden_fields: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage]

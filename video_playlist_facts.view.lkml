@@ -5,7 +5,7 @@ view: video_playlist_facts {
       , sum(playlist_saves_added) as saves_added
       , sum(playlist_saves_removed) as saves_removed
       , sum(views) as views
-      FROM `bigquery-connectors.youtube_channel_reports.p_playlist_basic_a1_ycr`
+      FROM `bigquery-connectors.youtube_channel_reports.p_playlist_basic_a1__aa`
       group by 1, 2, 3
        ;;
   }
