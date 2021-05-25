@@ -2,9 +2,13 @@ connection: "dv-looker-poc"
 
 # include all the views
 include: "*.view"
+include: "/views/*.view"
 
 # include all the dashboards
 include: "*.dashboard"
+
+explore: random_data {}
+
 
 explore: channel_combined_a2__aa {
   label: "YouTube Channel"
