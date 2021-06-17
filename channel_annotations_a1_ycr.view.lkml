@@ -46,9 +46,9 @@ view: channel_annotations_a1__aa {
     sql: ${TABLE}.annotation_clicks ;;
   }
 
-  dimension: annotation_clicks {
+  dimension: annotation_clicks1 {
     type: number
-    sql: ${annotation_clicks};;
+    sql: ${annotation_clicks} ;;
   }
 
 
