@@ -9,7 +9,7 @@
   - name: Total Views
     title: total_views
     type: single_value
-    model: youtube_channel_owner
+    model: youtube_channel_owner3
     explore: channel_combined_a2__aa
     measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
       channel_combined_a2__aa.total_watch_time_minutes]
@@ -69,7 +69,7 @@
   - name: overall_engagement
     title: Overall Engagement
     type: single_value
-    model: youtube_channel_owner
+    model: youtube_channel_owner3
     explore: channel_combined_a2__aa
     measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
       channel_combined_a2__aa.total_watch_time_minutes]
@@ -126,7 +126,7 @@
   - name: total_minutes_watched
     title: Total Minutes Watched
     type: single_value
-    model: youtube_channel_owner
+    model: youtube_channel_owner3
     explore: channel_combined_a2__aa
     measures: [channel_combined_a2__aa.total_views, channel_combined_a2__aa.avg_view_duration_percentage,
       channel_combined_a2__aa.total_watch_time_minutes]
