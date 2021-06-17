@@ -14,7 +14,7 @@ view: channel_annotations_a1__aa {
       year
     ]
     convert_tz: no
-    sql: ${TABLE}._DATA_DATE ;;
+    sql: ${TABLE}._DATA_DATE;;
   }
 
   dimension_group: _latest {
@@ -45,6 +45,12 @@ view: channel_annotations_a1__aa {
     type: number
     sql: ${TABLE}.annotation_clicks ;;
   }
+
+  dimension: annotation_clicks {
+    type: number
+    sql: ${annotation_clicks};;
+  }
+
 
   dimension: annotation_closable_impressions {
     type: number
