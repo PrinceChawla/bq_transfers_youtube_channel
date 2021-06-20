@@ -9,7 +9,19 @@ include: "*.dashboard"
 
 explore: random_data {}
 
-# explore: random_data1 {}
+datagroup: default {
+  max_cache_age: "24 hours"
+  sql_trigger: select count(1) from mlconsole-poc.youtube_channel_reports.random_data ;;
+}
+
+
+
+# persist_with: default # if this is added in explore, then only for that explore it will work
+
+explore: random_dt {
+  persist_with: default
+
+} # for derived table
 
 
 explore: channel_combined_a2__aa {
