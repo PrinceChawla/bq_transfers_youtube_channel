@@ -7,19 +7,25 @@ include: "/views/*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-explore: random_data {}
+explore: random_data {
+  persist_with: default
+}
 
 datagroup: default {
-  max_cache_age: "24 hours"
+  # max_cache_age: "1 minute"
   sql_trigger: select count(1) from mlconsole-poc.youtube_channel_reports.random_data ;;
 }
 
-
+# access_grant: can_view_random_number {
+#   user_attribute: yesnocan_view_random_number
+#   allowed_values: ["yes"]
+# }
 
 # persist_with: default # if this is added in explore, then only for that explore it will work
 
 explore: random_dt {
-  persist_with: default
+  # required_access_grants: [can_view_random_number]
+  # persist_with: default
 
 } # for derived table
 
@@ -31,6 +37,7 @@ explore: channel_combined_a2__aa {
   join: video_annotation_facts {
     view_label: "Annotations"
     relationship: many_to_one
+
     type: left_outer
     sql_on: ${channel_combined_a2__aa.video_id} = ${video_annotation_facts.video_id} and
       ${channel_combined_a2__aa.date} = ${video_annotation_facts.date};;
