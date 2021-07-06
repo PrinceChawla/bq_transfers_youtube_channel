@@ -5,8 +5,4 @@ _This Block is modeled on the schema brough in by Google's BigQuery Transfer Ser
 _The schema documentation for YouTube can be found in [Google's docs](https://developers.google.com/apis-explorer/#p/youtube/v3/). Please note that your naming might vary slightly._
 
 
-# comment by prince PR Recommended
-# comment by prince PR Recommended 2
-# comment by prince PR Required 3
-# comment by prince PR Required 4
-# comment by prince PR Required 5
+# comment by prince PR Recommended - 1

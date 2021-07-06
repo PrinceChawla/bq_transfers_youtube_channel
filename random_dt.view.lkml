@@ -12,8 +12,9 @@ view: random_dt {
       LIMIT 500
        ;;
       # datagroup_trigger: default
-      # persist_for: "20 seconds"
-      sql_trigger_value: select count(1) from mlconsole-poc.youtube_channel_reports.random_data  ;;
+      # persist_for: "10 seconds"
+      # sql_trigger_value: select count(1) from mlconsole-poc.youtube_channel_reports.random_data;;
+
   }
 
   measure: count {
