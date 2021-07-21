@@ -12,7 +12,7 @@ explore: random_data {
 }
 
 datagroup: default {
-  # max_cache_age: "1 minute"
+  max_cache_age: "10 seconds"
   sql_trigger: select count(1) from mlconsole-poc.youtube_channel_reports.random_data ;;
 }
 
