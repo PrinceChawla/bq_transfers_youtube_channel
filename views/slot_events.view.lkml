@@ -33,6 +33,7 @@ view: slot_events {
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
+    primary_key: yes
   }
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
@@ -41,6 +42,8 @@ view: slot_events {
   dimension_group: event_timestamp {
     type: time
     timeframes: [
+      hour,
+      day_of_week,
       raw,
       time,
       date,
@@ -57,10 +60,56 @@ view: slot_events {
     sql: ${TABLE}.event_type ;;
   }
 
+  dimension_group: game_end_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.game_end_timestamp ;;
+  }
+
   dimension: game_id {
     type: number
     sql: ${TABLE}.game_id ;;
   }
+
+  dimension_group: game_start_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.game_start_timestamp ;;
+  }
+
+  dimension_group: time_played {
+    type: duration
+    intervals: [second, minute, hour,day, week, month, quarter, year]
+    sql_start: ${game_start_timestamp_raw} ;;
+    sql_end: ${game_end_timestamp_raw} ;;
+    }
+
+  measure: total_time_played {
+    sql: ${minutes_time_played} ;;
+    type: sum
+  }
+
+  measure: average_time_played {
+    sql: ${minutes_time_played} ;;
+    type: average
+  }
+
 
   dimension: player_id {
     type: number
@@ -72,14 +121,32 @@ view: slot_events {
     sql: ${TABLE}.slot_id ;;
   }
 
-  filter: slot_id_filter {
+  dimension: new_visitor  {
     type: string
-    sql: "A"+${slot_id} ;;
-
+    sql: cast(${TABLE}.new_visitor as string) ;;
   }
 
   measure: count {
-    type: count
-    drill_fields: []
+    type: count_distinct
+    sql: ${event_id} ;;
+    drill_fields: [event_timestamp_hour, count]
+    # link: {
+    #   label: "Drill to Hour"
+    #   url: "
+    #   {% assign vis_config = '{\"type\": \"looker_line\"}' %}
+    #   {{ _link }}&vis_config={{ vis_config  }}"
+    # }
+
   }
+
+  measure: count_new_visitor {
+    type: count
+      filters: [new_visitor: "true"]
+  }
+
+  measure: count_repeat_visitor {
+    type: count
+    filters: [new_visitor: "false"]
+  }
+
 }

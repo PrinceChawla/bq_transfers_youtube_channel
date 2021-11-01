@@ -11,12 +11,26 @@ explore: random_data {
   persist_with: default
 }
 
-explore: slot_events {}
+explore: slot_events {
+join: slot_details {
+  type: left_outer
+  relationship: many_to_one
+  sql_on: ${slot_details.slot_id}=${slot_events.slot_id} ;;
+}
+
+  join: game_details {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${game_details.game_id}=${slot_events.game_id} ;;
+  }
+
+}
+
 
 
 datagroup: default {
-  max_cache_age: "10 seconds"
-  sql_trigger: select count(1) from mlconsole-poc.youtube_channel_reports.random_data ;;
+  max_cache_age: "1 hour"
+  # sql_trigger: select count(1) from mlconsole-poc.youtube_channel_reports.random_data ;;
 }
 
 # access_grant: can_view_random_number {
