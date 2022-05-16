@@ -1,5 +1,5 @@
-view: channel_combined_a2_ycr {
-  sql_table_name: youtube_channel_reports.channel_combined_a2_ycr ;;
+view: channel_combined_a2__aa {
+  sql_table_name: youtube_channel_reports.channel_combined_a2__aa ;;
 
   ###########################
 #######YouTube Dimensions#######

@@ -1,5 +1,5 @@
-view: channel_annotations_a1_ycr {
-  sql_table_name: youtube_channel_reports.channel_annotations_a1_ycr ;;
+view: channel_annotations_a1__aa {
+  sql_table_name: youtube_channel_reports.channel_annotations_a1__aa ;;
 
 
 
@@ -14,7 +14,7 @@ view: channel_annotations_a1_ycr {
       year
     ]
     convert_tz: no
-    sql: ${TABLE}._DATA_DATE ;;
+    sql: ${TABLE}._DATA_DATE;;
   }
 
   dimension_group: _latest {
@@ -45,6 +45,12 @@ view: channel_annotations_a1_ycr {
     type: number
     sql: ${TABLE}.annotation_clicks ;;
   }
+
+  dimension: annotation_clicks1 {
+    type: number
+    sql: ${annotation_clicks} ;;
+  }
+
 
   dimension: annotation_closable_impressions {
     type: number

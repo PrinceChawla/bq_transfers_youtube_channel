@@ -1,5 +1,5 @@
-view: channel_sharing_service_a1_ycr {
-  sql_table_name: youtube_channel_reports.channel_sharing_service_a1_ycr ;;
+view: channel_sharing_service_a1__aa {
+  sql_table_name: youtube_channel_reports.channel_sharing_service_a1__aa ;;
 
   dimension_group: _data {
     type: time

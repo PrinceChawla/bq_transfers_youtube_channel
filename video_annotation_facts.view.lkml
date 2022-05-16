@@ -12,7 +12,7 @@ view: video_annotation_facts {
       , sum(annotation_closes) as closes
       , sum(annotation_closable_impressions) as closable_impressions
       , sum(annotation_close_rate) as close_rate
-    FROM `bigquery-connectors.youtube_channel_reports.channel_annotations_a1_ycr`
+    FROM `bigquery-connectors.youtube_channel_reports.channel_annotations_a1__aa`
     group by 1, 2
  ;;
   }

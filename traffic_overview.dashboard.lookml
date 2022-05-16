@@ -10,8 +10,8 @@
       title: Total Number Sources
       type: single_value
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      measures: [channel_combined_a2_ycr.count_sources]
+      explore: channel_combined_a2__aa
+      measures: [channel_combined_a2__aa.count_sources]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -50,8 +50,8 @@
       title: Total Views
       type: single_value
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      measures: [channel_combined_a2_ycr.total_views]
+      explore: channel_combined_a2__aa
+      measures: [channel_combined_a2__aa.total_views]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -90,8 +90,8 @@
       title: Average View Time (Seconds)
       type: single_value
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      measures: [channel_combined_a2_ycr.avg_view_duration_s]
+      explore: channel_combined_a2__aa
+      measures: [channel_combined_a2__aa.avg_view_duration_s]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -130,8 +130,8 @@
       title: Average Percent of Video Watched
       type: single_value
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      measures: [channel_combined_a2_ycr.avg_view_duration_percentage]
+      explore: channel_combined_a2__aa
+      measures: [channel_combined_a2__aa.avg_view_duration_percentage]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -170,11 +170,11 @@
       title: Performance by Traffic Source
       type: looker_column
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.traffic_source]
-      measures: [channel_combined_a2_ycr.avg_view_duration_s, channel_combined_a2_ycr.avg_view_duration_percentage,
-        channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.total_views desc]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.traffic_source]
+      measures: [channel_combined_a2__aa.avg_view_duration_s, channel_combined_a2__aa.avg_view_duration_percentage,
+        channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.total_views desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -208,21 +208,21 @@
       comparison_reverse_colors: false
       show_comparison_label: true
       series_types:
-        channel_combined_a2_ycr.avg_view_duration_s: line
-        channel_combined_a2_ycr.avg_view_duration_percentage: line
+        channel_combined_a2__aa.avg_view_duration_s: line
+        channel_combined_a2__aa.avg_view_duration_percentage: line
       series_colors:
-        channel_combined_a2_ycr.total_views: "#3B4260"
-        channel_combined_a2_ycr.avg_view_duration_percentage: "#39A736"
+        channel_combined_a2__aa.total_views: "#3B4260"
+        channel_combined_a2__aa.avg_view_duration_percentage: "#39A736"
 
     - name: performance_by_device
       title: Performance by Device
       type: looker_column
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.device]
-      measures: [channel_combined_a2_ycr.avg_view_duration_s, channel_combined_a2_ycr.avg_view_duration_percentage,
-        channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.avg_view_duration_s desc]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.device]
+      measures: [channel_combined_a2__aa.avg_view_duration_s, channel_combined_a2__aa.avg_view_duration_percentage,
+        channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.avg_view_duration_s desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -256,20 +256,20 @@
       comparison_reverse_colors: false
       show_comparison_label: true
       series_types:
-        channel_combined_a2_ycr.avg_view_duration_s: line
-        channel_combined_a2_ycr.avg_view_duration_percentage: line
+        channel_combined_a2__aa.avg_view_duration_s: line
+        channel_combined_a2__aa.avg_view_duration_percentage: line
       series_colors:
-        channel_combined_a2_ycr.total_views: "#3B4260"
-        channel_combined_a2_ycr.avg_view_duration_percentage: "#39A736"
+        channel_combined_a2__aa.total_views: "#3B4260"
+        channel_combined_a2__aa.avg_view_duration_percentage: "#39A736"
 
     - name: subscribed_vs_non_views
       title: Subscription Views
       type: looker_pie
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.subscribed_status]
-      measures: [channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.total_views desc]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.subscribed_status]
+      measures: [channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.total_views desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -306,12 +306,12 @@
       title: Subscription Views over Time
       type: looker_area
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.subscribed_status, channel_combined_a2_ycr._data_date]
-      pivots: [channel_combined_a2_ycr.subscribed_status]
-      fill_fields: [channel_combined_a2_ycr._data_date]
-      measures: [channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.total_views desc 0, channel_combined_a2_ycr.subscribed_status]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.subscribed_status, channel_combined_a2__aa._data_date]
+      pivots: [channel_combined_a2__aa.subscribed_status]
+      fill_fields: [channel_combined_a2__aa._data_date]
+      measures: [channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.total_views desc 0, channel_combined_a2__aa.subscribed_status]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -351,11 +351,11 @@
       title: Subscription by Source
       type: looker_donut_multiples
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.traffic_source, channel_combined_a2_ycr.subscribed_status]
-      pivots: [channel_combined_a2_ycr.subscribed_status]
-      measures: [channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.subscribed_status 0, channel_combined_a2_ycr.traffic_source desc]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.traffic_source, channel_combined_a2__aa.subscribed_status]
+      pivots: [channel_combined_a2__aa.subscribed_status]
+      measures: [channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.subscribed_status 0, channel_combined_a2__aa.traffic_source desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles
@@ -398,9 +398,9 @@
       title: Video Completion Rate by Length of Video
       type: looker_column
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
+      explore: channel_combined_a2__aa
       dimensions: [video_facts.video_length_minutes_tier]
-      measures: [channel_combined_a2_ycr.avg_view_duration_percentage, channel_combined_a2_ycr.video_count]
+      measures: [channel_combined_a2__aa.avg_view_duration_percentage, channel_combined_a2__aa.video_count]
       sorts: [video_facts.video_length_minutes_tier]
       limit: '500'
       column_limit: '50'
@@ -428,17 +428,17 @@
       show_silhouette: false
       totals_color: "#808080"
       series_types:
-        channel_combined_a2_ycr.avg_view_duration_percentage: line
+        channel_combined_a2__aa.avg_view_duration_percentage: line
 
 
     - name: views_by_geography
       title: Views by Location
       type: looker_map
       model: youtube_channel_owner
-      explore: channel_combined_a2_ycr
-      dimensions: [channel_combined_a2_ycr.country_code]
-      measures: [channel_combined_a2_ycr.total_views]
-      sorts: [channel_combined_a2_ycr.total_views desc]
+      explore: channel_combined_a2__aa
+      dimensions: [channel_combined_a2__aa.country_code]
+      measures: [channel_combined_a2__aa.total_views]
+      sorts: [channel_combined_a2__aa.total_views desc]
       limit: '500'
       column_limit: '50'
       query_timezone: America/Los_Angeles

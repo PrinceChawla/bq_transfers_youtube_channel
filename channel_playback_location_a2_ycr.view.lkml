@@ -1,5 +1,5 @@
 view: channel_playback_location_a2_ycr {
-  sql_table_name: youtube_channel_reports.channel_playback_location_a2_ycr ;;
+  sql_table_name: youtube_channel_reports.channel_playback_location_a2__aa ;;
 
   dimension_group: _data {
     type: time
