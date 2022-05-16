@@ -26,6 +26,7 @@ join: slot_details {
 
 }
 
+explore: website_performance {}
 
 
 datagroup: default {
