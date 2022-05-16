@@ -83,10 +83,16 @@ view: website_performance {
     sql: ${TABLE}.site_interaction_by ;;
   }
 
-  dimension: source_id {
+  # dimension: source_id {
+  #   type: string
+  #   sql: ${TABLE}.source_id ;;
+  # }
+
+  dimension: social_network {
     type: string
-    sql: ${TABLE}.source_id ;;
+    sql: ${TABLE}.social_network ;;
   }
+
 
   dimension: os {
     type: string
