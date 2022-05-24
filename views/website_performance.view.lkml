@@ -14,6 +14,7 @@ view: website_performance {
   measure: avg_time_on_page {
     type: sum
     sql: ${TABLE}.avg_time_on_page ;;
+
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -39,6 +40,7 @@ view: website_performance {
   measure: engagements {
     type: sum
     sql: ${TABLE}.engagements ;;
+    value_format:"0.00,\" K\""
   }
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
@@ -71,6 +73,7 @@ view: website_performance {
   measure: page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
+    value_format:"0.00,\" K\""
   }
 
   measure: session_id {

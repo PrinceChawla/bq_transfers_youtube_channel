@@ -26,7 +26,12 @@ join: slot_details {
 
 }
 
-explore: website_performance {}
+explore: website_performance {
+  access_filter: {
+    field: website
+    user_attribute: website
+  }
+}
 
 
 datagroup: default {
