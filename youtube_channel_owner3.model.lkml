@@ -27,10 +27,13 @@ join: slot_details {
 }
 
 explore: website_performance {
-  access_filter: {
-    field: website
-    user_attribute: website
-  }
+  # access_filter: {
+  #   field: website
+  #   user_attribute: website
+  # }
+  sql_always_where: ${website_performance.website} = '{{ _user_attributes["website"] }}'
+  OR '{{ _user_attributes["website"] }}'  in ('ALL');;
+  # ;;
 }
 
 
