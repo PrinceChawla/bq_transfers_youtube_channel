@@ -62,7 +62,7 @@ view: website_performance {
 
   dimension: page_scroll_by {
     type: string
-    sql: ${TABLE}.page_scroll_by ;;
+    sql: substring(${TABLE}.page_scroll_by,16,21) ;;
   }
 
   dimension: page_title {
