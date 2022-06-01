@@ -11,6 +11,8 @@ explore: random_data {
   persist_with: default
 }
 
+
+
 explore: slot_events {
 join: slot_details {
   type: left_outer
@@ -35,6 +37,9 @@ explore: website_performance {
   OR '{{ _user_attributes["website"] }}'  in ('ALL');;
   # ;;
 }
+
+explore: media_performance {}
+explore: user_journey {}
 
 
 datagroup: default {
