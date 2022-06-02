@@ -24,6 +24,14 @@ view: media_performance {
   measure: impressions {
     type: sum
     sql: ${TABLE}.impressions ;;
+    html: {% if value > 8700000 %}
+
+    <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
+    {% elsif value < 0 OR value < 8700000 %}
+    <p style="color: #009900">▼  {{ rendered_value }}</p>
+    {% else %}
+    <p style="color: #000000">{{ rendered_value }}</p>
+    {% endif %} ;;
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -110,7 +118,17 @@ view: media_performance {
   measure: clicks {
     type: sum
     sql: ${TABLE}.Clicks ;;
+    html: {% if value > 200000 %}
+
+    <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
+    {% elsif value < 0 OR value < 200000 %}
+    <p style="color: #009900">▼  {{ rendered_value }}</p>
+    {% else %}
+    <p style="color: #000000">{{ rendered_value }}</p>
+    {% endif %} ;;
   }
+
+
   measure: Average_Clicks {
     type: average
     value_format: "0"
@@ -121,9 +139,4 @@ view: media_performance {
     value_format: "0"
     sql: ${TABLE}.impressions  ;;
   }
-
-  # measure: count {
-  #   type: count
-  #   drill_fields: []
-  # }
 }
