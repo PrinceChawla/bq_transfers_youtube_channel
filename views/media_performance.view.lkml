@@ -24,6 +24,18 @@ view: media_performance {
   measure: impressions {
     type: sum
     sql: ${TABLE}.impressions ;;
+    # html: {% if value > 8700000 %}
+
+    # <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
+    # {% elsif value < 0 OR value < 8700000 %}
+    # <p style="color: #009900">▼  {{ rendered_value }}</p>
+    # {% else %}
+    # <p style="color: #000000">{{ rendered_value }}</p>
+    # {% endif %} ;;
+  }
+  measure: Arrow_impressions {
+    type: sum
+    sql: ${TABLE}.impressions ;;
     html: {% if value > 8700000 %}
 
     <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
@@ -33,7 +45,6 @@ view: media_performance {
     <p style="color: #000000">{{ rendered_value }}</p>
     {% endif %} ;;
   }
-
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
@@ -116,6 +127,18 @@ view: media_performance {
   }
 
   measure: clicks {
+    type: sum
+    sql: ${TABLE}.Clicks ;;
+    # html: {% if value > 200000 %}
+
+    # <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
+    # {% elsif value < 0 OR value < 200000 %}
+    # <p style="color: #009900">▼  {{ rendered_value }}</p>
+    # {% else %}
+    # <p style="color: #000000">{{ rendered_value }}</p>
+    # {% endif %} ;;
+  }
+  measure: Arrow_clicks {
     type: sum
     sql: ${TABLE}.Clicks ;;
     html: {% if value > 200000 %}
