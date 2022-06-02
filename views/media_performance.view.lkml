@@ -143,11 +143,11 @@ view: media_performance {
     sql: ${TABLE}.Clicks ;;
     html: {% if value > 200000 %}
 
-    <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
+    <p style="color: #2AAA8A">▲  {{ value }}</p>
     {% elsif value < 0 OR value < 200000 %}
-    <p style="color: #009900">▼  {{ rendered_value }}</p>
+    <p style="color: #009900">▼  {{ value }}</p>
     {% else %}
-    <p style="color: #000000">{{ rendered_value }}</p>
+    <p style="color: #000000">{{ value }}</p>
     {% endif %} ;;
   }
 

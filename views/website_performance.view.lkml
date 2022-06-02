@@ -16,6 +16,9 @@ view: website_performance {
     sql: ${TABLE}.avg_time_on_page ;;
 
   }
+  measure: avg_t {
+    sql: ${avg_time_on_page} ;;
+  }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
@@ -149,6 +152,18 @@ view: website_performance {
   measure: count {
     type: count
     drill_fields: []
+  }
+  measure: test_count {
+    sql: ${count} ;;
+    value_format: "#,##0"
+    html:{% if  avg_time_on_page._value > 45000 %}
+
+          <p style="color: #2AAA8A">▲  {{avg_time_on_page._rendered_value}}</p>
+          {% elsif avg_time_on_page._value > 10000 OR avg_time_on_page._value < 46000 %}
+          <p style="color: #FF0000">▼   {{avg_time_on_page._rendered_value}}</p>
+          {% else %}
+          <p style="color: #000000">{{avg_time_on_page._rendered_value}}</p>
+          {% endif %};;
   }
   measure:dash_nav1 {
     view_label: "Session"
