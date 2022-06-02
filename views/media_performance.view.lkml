@@ -88,7 +88,10 @@ view: media_performance {
     sql: ${TABLE}.last_spend ;;
   }
 
-
+  dimension: Social_Media {
+    type: string
+    sql: ${TABLE}.social_platform ;;
+  }
   dimension_group: timestamp {
     type: time
     timeframes: [
@@ -98,7 +101,8 @@ view: media_performance {
       week,
       month,
       quarter,
-      year
+      year,
+      month_name
     ]
     sql: ${TABLE}.timestamp ;;
   }
@@ -106,6 +110,14 @@ view: media_performance {
   measure: clicks {
     type: sum
     sql: ${TABLE}.Clicks ;;
+  }
+  measure: Average_Clicks {
+    type: average
+    sql: ${TABLE}.Clicks ;;
+  }
+  measure: Average_Impressions {
+    type: average
+    sql: ${TABLE}.impressions  ;;
   }
 
   # measure: count {
