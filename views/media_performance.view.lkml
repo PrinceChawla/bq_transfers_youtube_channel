@@ -113,10 +113,12 @@ view: media_performance {
   }
   measure: Average_Clicks {
     type: average
+    value_format: "0"
     sql: ${TABLE}.Clicks ;;
   }
   measure: Average_Impressions {
     type: average
+    value_format: "0"
     sql: ${TABLE}.impressions  ;;
   }
 
