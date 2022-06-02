@@ -151,6 +151,13 @@ view: media_performance {
     {% endif %} ;;
   }
 
+  measure: clicks_last_month {
+    type: sum
+    sql: ${TABLE}.Clicks ;;
+    filters: [timestamp_date: "1 month ago"]
+
+    }
+
 
   measure: Average_Clicks {
     type: average
