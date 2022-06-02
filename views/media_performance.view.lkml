@@ -77,8 +77,9 @@ view: media_performance {
     sql: ${TABLE}.search_keyword ;;
   }
 
-  measure: spend {
+  measure: Cost {
     type: sum
+    value_format_name: usd_0
     sql: ${TABLE}.spend ;;
   }
 
@@ -100,6 +101,11 @@ view: media_performance {
       year
     ]
     sql: ${TABLE}.timestamp ;;
+  }
+
+  measure: clicks {
+    type: sum
+    sql: ${TABLE}.Clicks ;;
   }
 
   # measure: count {
