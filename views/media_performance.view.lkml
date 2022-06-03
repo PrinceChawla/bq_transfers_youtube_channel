@@ -129,25 +129,23 @@ view: media_performance {
   measure: clicks {
     type: sum
     sql: ${TABLE}.Clicks ;;
-    # html: {% if value > 200000 %}
-
-    # <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
-    # {% elsif value < 0 OR value < 200000 %}
-    # <p style="color: #009900">▼  {{ rendered_value }}</p>
-    # {% else %}
-    # <p style="color: #000000">{{ rendered_value }}</p>
-    # {% endif %} ;;
+  }
+  measure: clicks_final {
+    type: number
+    sql: ${clicks} ;;
+    value_format: "#,##0"
   }
   measure: Arrow_clicks {
-    type: sum
-    sql: ${TABLE}.Clicks ;;
-    html: {% if value > 200000 %}
+    type: number
+    value_format: "#,##0"
+    sql: ${clicks_last_month} ;;
+    html: {% if value >= 50000 and value <=100000 %}
 
-    <p style="color: #2AAA8A">▲  {{ value }}</p>
+    <p style="color: #ffffff;">▲  {{rendered_value}}</p>
     {% elsif value < 0 OR value < 200000 %}
-    <p style="color: #009900">▼  {{ value }}</p>
+    <p style="color: #009900">▼ {{rendered_value}}</p>
     {% else %}
-    <p style="color: #000000">{{ value }}</p>
+    <p style="color: #000000">{{rendered_value}}</p>
     {% endif %} ;;
   }
 
@@ -155,8 +153,34 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     filters: [timestamp_date: "1 month ago"]
+    html: {% if value >= 50000 and value <=200000 %}
+
+    <p style="color: #ffffff;">▲  {{rendered_value}}</p>
+    {% elsif value < 0 OR value < 200000 %}
+    <p style="color: #009900">▼ {{rendered_value}}</p>
+    {% else %}
+    <p style="color: #000000">{{rendered_value}}</p>
+    {% endif %} ;;
 
     }
+  measure: Impressions_last_month {
+    type: sum
+    sql: ${TABLE}.impressions ;;
+    filters: [timestamp_date: "1 month ago"]
+    html: {% if value >= 50000 and value <=7000000 %}
+
+          <p style="color: #ffffff;">▲  {{rendered_value}}</p>
+          {% elsif value < 0 OR value < 200000 %}
+          <p style="color: #009900">▼ {{rendered_value}}</p>
+          {% else %}
+          <p style="color: #000000">{{rendered_value}}</p>
+          {% endif %} ;;
+
+  }
+  # measure: clicks_last_month_final {
+  #   sql: ${clicks_last_month} ;;
+  #   value_format: "#,##0"
+  # }
 
 
   measure: Average_Clicks {
