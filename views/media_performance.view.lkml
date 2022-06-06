@@ -153,7 +153,7 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 50000 and value <=200000 %}
+    html: {% if value >= 10000 and value <=200000 %}
 
     <p style="color: #ffffff;">▲  {{rendered_value}}</p>
     {% elsif value < 0 OR value < 200000 %}
