@@ -24,6 +24,7 @@ view: media_performance {
   measure: impressions {
     type: sum
     sql: ${TABLE}.impressions ;;
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     # html: {% if value > 8700000 %}
 
     # <p style="color: #2AAA8A">▲  {{ rendered_value }}</p>
@@ -129,6 +130,7 @@ view: media_performance {
   measure: clicks {
     type: sum
     sql: ${TABLE}.Clicks ;;
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
   }
   measure: clicks_final {
     type: number
@@ -153,11 +155,11 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 10000 and value <=200000 %}
+    html: {% if value >= 1 and value <=1000000000 %}
 
-    <p style="color: #ffffff;">▲  {{rendered_value}}</p>
+    <p style="color: #ffffff;">{{rendered_value}}</p>
     {% elsif value < 0 OR value < 200000 %}
-    <p style="color: #009900">▼ {{rendered_value}}</p>
+    <p style="color: #009900">{{rendered_value}}</p>
     {% else %}
     <p style="color: #000000">{{rendered_value}}</p>
     {% endif %} ;;
@@ -167,11 +169,11 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.impressions ;;
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 50000 and value <=7000000 %}
+    html: {% if value >= 1 and value <=1000000000 %}
 
-          <p style="color: #ffffff;">▲  {{rendered_value}}</p>
+          <p style="color: #ffffff;">{{rendered_value}}</p>
           {% elsif value < 0 OR value < 200000 %}
-          <p style="color: #009900">▼ {{rendered_value}}</p>
+          <p style="color: #009900">{{rendered_value}}</p>
           {% else %}
           <p style="color: #000000">{{rendered_value}}</p>
           {% endif %} ;;
