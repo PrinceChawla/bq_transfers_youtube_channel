@@ -155,6 +155,7 @@ view: media_performance {
   measure: clicks_last_month {
     type: sum
     sql: ${TABLE}.Clicks ;;
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     filters: [timestamp_date: "1 month ago"]
     html: {% if value >= 1 and value <=1000000000 %}
 
@@ -169,6 +170,7 @@ view: media_performance {
   measure: Impressions_last_month {
     type: sum
     sql: ${TABLE}.impressions ;;
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     filters: [timestamp_date: "1 month ago"]
     html: {% if value >= 1 and value <=1000000000 %}
 
