@@ -190,12 +190,12 @@ view: media_performance {
 
   measure: Average_Clicks {
     type: average
-    value_format: "0"
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     sql: ${TABLE}.Clicks ;;
   }
   measure: Average_Impressions {
     type: average
-    value_format: "0"
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     sql: ${TABLE}.impressions  ;;
   }
   measure:dash_nav1 {
