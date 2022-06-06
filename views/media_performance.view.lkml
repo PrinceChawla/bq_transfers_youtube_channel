@@ -99,7 +99,8 @@ view: media_performance {
 
   measure: Cost {
     type: sum
-    value_format_name: usd_0
+    #value_format_name: usd_0
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: ${TABLE}.spend ;;
   }
 
