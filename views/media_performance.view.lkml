@@ -157,31 +157,13 @@ view: media_performance {
     sql: ${TABLE}.Clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 1 and value <=1000000000 %}
-
-    <p style="color: #ffffff;">{{rendered_value}}</p>
-    {% elsif value < 0 OR value < 200000 %}
-    <p style="color: #009900">{{rendered_value}}</p>
-    {% else %}
-    <p style="color: #000000">{{rendered_value}}</p>
-    {% endif %} ;;
-
-    }
+}
   measure: Impressions_last_month {
     type: sum
     sql: ${TABLE}.impressions ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 1 and value <=1000000000 %}
-
-          <p style="color: #ffffff;">{{rendered_value}}</p>
-          {% elsif value < 0 OR value < 200000 %}
-          <p style="color: #009900">{{rendered_value}}</p>
-          {% else %}
-          <p style="color: #000000">{{rendered_value}}</p>
-          {% endif %} ;;
-
-  }
+}
   # measure: clicks_last_month_final {
   #   sql: ${clicks_last_month} ;;
   #   value_format: "#,##0"
