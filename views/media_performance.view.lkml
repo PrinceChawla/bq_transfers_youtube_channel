@@ -158,6 +158,12 @@ view: media_performance {
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
 }
+
+measure: percentage_increase {
+  type: number
+  value_format: "0.00\%"
+  sql: ${clicks} - ${clicks_final} ;;
+}
   measure: Impressions_last_month {
     type: sum
     sql: ${TABLE}.impressions ;;
