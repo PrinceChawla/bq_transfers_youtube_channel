@@ -93,3 +93,4 @@ explore: channel_combined_a2__aa {
 
 explore: channel_traffic_source_a2__aa {}
 explore: cg_hcp_demo {}
+explore: social_performance1 {}
