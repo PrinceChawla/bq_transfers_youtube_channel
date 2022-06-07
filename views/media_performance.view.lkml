@@ -162,7 +162,7 @@ view: media_performance {
 measure: percentage_increase {
   type: number
   value_format: "0.00\%"
-  sql: ${clicks} - ${clicks_final} ;;
+  sql: ${clicks} - ${clicks_last_month} ;;
 }
   measure: Impressions_last_month {
     type: sum
