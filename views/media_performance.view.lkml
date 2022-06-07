@@ -86,7 +86,10 @@ view: media_performance {
     type: string
     sql: ${TABLE}.os ;;
   }
-
+  dimension: region {
+    type: string
+    sql: ${TABLE}.region ;;
+  }
   dimension: persona {
     type: string
     sql: ${TABLE}.persona ;;
@@ -102,6 +105,14 @@ view: media_performance {
     #value_format_name: usd_0
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: ${TABLE}.spend ;;
+  }
+  measure: Cost_last_month {
+    type: sum
+    #value_format_name: usd_0
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+    sql: ${TABLE}.spend ;;
+    filters: [timestamp_date: "1 month ago"]
+
   }
 
   dimension: last_spend {
@@ -162,7 +173,7 @@ view: media_performance {
 measure: percentage_increase {
   type: number
   value_format: "0.00\%"
-  sql: ${clicks} - ${clicks_last_month} ;;
+  sql: ${clicks}/${clicks_last_month};;
 }
   measure: Impressions_last_month {
     type: sum
@@ -185,6 +196,43 @@ measure: percentage_increase {
     type: average
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     sql: ${TABLE}.impressions  ;;
+  }
+
+  measure: total_eligible_impressions {
+    type: sum
+    sql: ${TABLE}.total_eligible_impressions;;
+  }
+  measure: total_eligible_impressions_lastmonth {
+    type: sum
+    sql: ${TABLE}.total_eligible_impressions;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+  measure: total_onepage_visits {
+    type: sum
+    sql: ${TABLE}.total_onepage_visits;;
+  }
+  measure: total_onepage_visits_last_month {
+    type: sum
+    sql: ${TABLE}.total_onepage_visits;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+  measure: total_entrancevisits {
+    type: sum
+    sql: ${TABLE}.total_entrancevisits;;
+  }
+  measure: total_entrancevisits_last_month {
+    type: sum
+    sql: ${TABLE}.total_entrancevisits;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: pages {
+    type: sum
+    sql: ${TABLE}.pages ;;
+  }
+  measure: sessions {
+    type: sum
+    sql: ${TABLE}.sessions ;;
   }
   measure:dash_nav1 {
     view_label: "Session"
