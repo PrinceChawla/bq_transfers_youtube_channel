@@ -86,7 +86,10 @@ view: media_performance {
     type: string
     sql: ${TABLE}.os ;;
   }
-
+  dimension: region {
+    type: string
+    sql: ${TABLE}.region ;;
+  }
   dimension: persona {
     type: string
     sql: ${TABLE}.persona ;;
@@ -102,6 +105,14 @@ view: media_performance {
     #value_format_name: usd_0
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: ${TABLE}.spend ;;
+  }
+  measure: Cost_last_month {
+    type: sum
+    #value_format_name: usd_0
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+    sql: ${TABLE}.spend ;;
+    filters: [timestamp_date: "1 month ago"]
+
   }
 
   dimension: last_spend {
@@ -157,31 +168,19 @@ view: media_performance {
     sql: ${TABLE}.Clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 1 and value <=1000000000 %}
+}
 
-    <p style="color: #ffffff;">{{rendered_value}}</p>
-    {% elsif value < 0 OR value < 200000 %}
-    <p style="color: #009900">{{rendered_value}}</p>
-    {% else %}
-    <p style="color: #000000">{{rendered_value}}</p>
-    {% endif %} ;;
-
-    }
+measure: percentage_increase {
+  type: number
+  value_format: "0.00\%"
+  sql: ${clicks}/${clicks_last_month};;
+}
   measure: Impressions_last_month {
     type: sum
     sql: ${TABLE}.impressions ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
-    html: {% if value >= 1 and value <=1000000000 %}
-
-          <p style="color: #ffffff;">{{rendered_value}}</p>
-          {% elsif value < 0 OR value < 200000 %}
-          <p style="color: #009900">{{rendered_value}}</p>
-          {% else %}
-          <p style="color: #000000">{{rendered_value}}</p>
-          {% endif %} ;;
-
-  }
+}
   # measure: clicks_last_month_final {
   #   sql: ${clicks_last_month} ;;
   #   value_format: "#,##0"
@@ -197,6 +196,43 @@ view: media_performance {
     type: average
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     sql: ${TABLE}.impressions  ;;
+  }
+
+  measure: total_eligible_impressions {
+    type: sum
+    sql: ${TABLE}.total_eligible_impressions;;
+  }
+  measure: total_eligible_impressions_lastmonth {
+    type: sum
+    sql: ${TABLE}.total_eligible_impressions;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+  measure: total_onepage_visits {
+    type: sum
+    sql: ${TABLE}.total_onepage_visits;;
+  }
+  measure: total_onepage_visits_last_month {
+    type: sum
+    sql: ${TABLE}.total_onepage_visits;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+  measure: total_entrancevisits {
+    type: sum
+    sql: ${TABLE}.total_entrancevisits;;
+  }
+  measure: total_entrancevisits_last_month {
+    type: sum
+    sql: ${TABLE}.total_entrancevisits;;
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: pages {
+    type: sum
+    sql: ${TABLE}.pages ;;
+  }
+  measure: sessions {
+    type: sum
+    sql: ${TABLE}.sessions ;;
   }
   measure:dash_nav1 {
     view_label: "Session"
@@ -214,16 +250,14 @@ view: media_performance {
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/343">Website Performance</a>
       <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px; float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:#2AAA8A" href="https://mediaagility.looker.com/dashboards/342">Audience</a>
-      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: left; line-height: 1.1px; font-weight: bold;" href="#home">  </a>
 
 
 
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px; float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A" href="https://mediaagility.looker.com/dashboards/319">Campaign</a>
-      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: left; line-height: 1.1px; font-weight: bold;" href="#home">  </a>
+
+
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://mediaagility.looker.com/dashboards/367">Media Performance</a>
-
-
+       <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+           <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:  #2AAA8A"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
 
 
 

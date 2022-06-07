@@ -16,6 +16,13 @@ view: website_performance {
     sql: ${TABLE}.avg_time_on_page ;;
 
   }
+  # measure: avg_time_on_page_last_month {
+  #   type: sum
+  #   sql: ${TABLE}.avg_time_on_page;;
+  #   # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  #   filters: [timestamp_date: "1 month ago"]
+  # }
+
   measure: avg_t {
     sql: ${avg_time_on_page} ;;
   }
@@ -46,6 +53,14 @@ view: website_performance {
     value_format:"0.00,\" K\""
   }
 
+
+  measure: engagements_last_month {
+    type: sum
+    sql: ${TABLE}.engagements;;
+      # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -73,15 +88,33 @@ view: website_performance {
     sql: ${TABLE}.page_title ;;
   }
 
+  dimension: device {
+    type: string
+    sql: ${TABLE}.device ;;
+  }
+
   measure: page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
     value_format:"0.00,\" K\""
   }
 
+  measure: page_views_last_month {
+    type: sum
+    sql: ${TABLE}.page_views ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
   measure: session_id {
     type: count
     sql: ${TABLE}.session_id ;;
+  }
+  measure: sessions_last_month {
+    type: count
+    sql: ${TABLE}.session_id ;;
+    # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
   }
 
   dimension: site_interaction_by {
@@ -142,6 +175,13 @@ view: website_performance {
   measure: unique_users {
     type: count
     sql: select 40;;
+  }
+
+  measure: unique_user_last_month {
+    type: count
+    sql: ${TABLE}.unique_users ;;
+    # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
   }
 
   dimension: website {
@@ -243,16 +283,11 @@ view: website_performance {
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://mediaagility.looker.com/dashboards/343">Website Performance</a>
       <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px; float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:#2AAA8A" href="https://mediaagility.looker.com/dashboards/342">Audience</a>
-      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: left; line-height: 1.1px; font-weight: bold;" href="#home">  </a>
 
-
-
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px; float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A" href="https://mediaagility.looker.com/dashboards/319">Campaign</a>
-      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: left; line-height: 1.1px; font-weight: bold;" href="#home">  </a>
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/367">Media Performance</a>
+      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
-
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
 
 
 
