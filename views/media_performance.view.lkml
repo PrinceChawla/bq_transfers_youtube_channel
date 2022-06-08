@@ -88,7 +88,7 @@ view: media_performance {
   }
   dimension: region {
     type: string
-    sql: ${TABLE}.region ;;
+    sql: ${TABLE}.State ;;
   }
   dimension: persona {
     type: string
