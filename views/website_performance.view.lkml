@@ -50,14 +50,14 @@ view: website_performance {
   measure: engagements {
     type: sum
     sql: ${TABLE}.engagements ;;
-    value_format:"0.00,\" K\""
+    value_format:"0.00,\"K\""
   }
 
 
   measure: engagements_last_month {
     type: sum
     sql: ${TABLE}.engagements;;
-      # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
   }
 
@@ -96,7 +96,7 @@ view: website_performance {
   measure: page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
-    value_format:"0.00,\" K\""
+    value_format:"0.00,\"K\""
   }
 
   measure: page_views_last_month {
@@ -109,6 +109,24 @@ view: website_performance {
   measure: session_id {
     type: count
     sql: ${TABLE}.session_id ;;
+  }
+
+  measure:sessions_per_visitors {
+    type: sum
+    sql: ${TABLE}.sessions_per_visitors ;;
+  }
+
+  measure:bounce_rate {
+    type: sum
+    sql: ${TABLE}.bounce_rate ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure:bounce_rate_last_month {
+    type: sum
+    sql: ${TABLE}.bounce_rate ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "15 days ago"]
   }
   measure: sessions_last_month {
     type: count
@@ -288,7 +306,8 @@ view: website_performance {
       <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
-
+        <a style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+                   <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:  #2AAA8A"  href="">Campaign</a>
 
 
       </div>;;
