@@ -93,6 +93,31 @@ view: website_performance {
     sql: ${TABLE}.device ;;
   }
 
+  measure: form_completion {
+    type: sum
+    sql: ${TABLE}.form_completion ;;
+  }
+
+  dimension: age_group {
+    type: string
+    sql: ${TABLE}.age_group ;;
+
+  }
+
+  dimension: category {
+    type: string
+    sql: ${TABLE}.category ;;
+
+  }
+
+  dimension: download_detail {
+    type: string
+    sql: ${TABLE}.download_detail ;;
+
+  }
+
+
+
   measure: page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
