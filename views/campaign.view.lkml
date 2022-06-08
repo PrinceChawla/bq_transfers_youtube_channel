@@ -64,7 +64,10 @@ view: campaign {
     type: string
     sql: ${TABLE}.social_platform ;;
   }
-
+ dimension: form {
+   type: string
+   sql: ${TABLE}.form ;;
+ }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -112,10 +115,6 @@ view: campaign {
     sql: ${TABLE}.Users ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
   measure:dash_nav1 {
     view_label: "Session"
     group_label: "Dashboard Navigation"
