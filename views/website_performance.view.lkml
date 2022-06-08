@@ -50,14 +50,14 @@ view: website_performance {
   measure: engagements {
     type: sum
     sql: ${TABLE}.engagements ;;
-    value_format:"0.00,\" K\""
+    value_format:"0.00,\"K\""
   }
 
 
   measure: engagements_last_month {
     type: sum
     sql: ${TABLE}.engagements;;
-      # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "1 month ago"]
   }
 
@@ -96,7 +96,7 @@ view: website_performance {
   measure: page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
-    value_format:"0.00,\" K\""
+    value_format:"0.00,\"K\""
   }
 
   measure: page_views_last_month {
@@ -120,6 +120,13 @@ view: website_performance {
     type: sum
     sql: ${TABLE}.bounce_rate ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure:bounce_rate_last_month {
+    type: sum
+    sql: ${TABLE}.bounce_rate ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "15 days ago"]
   }
   measure: sessions_last_month {
     type: count
