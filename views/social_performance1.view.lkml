@@ -13,10 +13,10 @@ view: social_performance1 {
     sql: ${TABLE}.device ;;
   }
 
-  dimension: frequency {
-    type: number
-    sql: ${TABLE}.frequency ;;
-  }
+  # dimension: frequency {
+  #   type: number
+  #   sql: ${TABLE}.frequency ;;
+  # }
 
   dimension_group: insert_ts {
     type: time
@@ -37,30 +37,30 @@ view: social_performance1 {
     sql: ${TABLE}.os ;;
   }
 
-  dimension: page_visit {
-    type: number
-    sql: ${TABLE}.page_visit ;;
-  }
+  # dimension: page_visit {
+  #   type: number
+  #   sql: ${TABLE}.page_visit ;;
+  # }
 
   dimension: persona {
     type: string
     sql: ${TABLE}.persona ;;
   }
 
-  dimension: post_comments {
-    type: number
-    sql: ${TABLE}.post_comments ;;
-  }
+  # dimension: post_comments {
+  #   type: number
+  #   sql: ${TABLE}.post_comments ;;
+  # }
 
-  dimension: post_share {
-    type: number
-    sql: ${TABLE}.post_share ;;
-  }
+  # dimension: post_share {
+  #   type: number
+  #   sql: ${TABLE}.post_share ;;
+  # }
 
-  dimension: reach {
-    type: number
-    sql: ${TABLE}.reach ;;
-  }
+  # dimension: reach {
+  #   type: number
+  #   sql: ${TABLE}.reach ;;
+  # }
 
   dimension: social_platform {
     type: string
@@ -96,21 +96,107 @@ view: social_performance1 {
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
   }
 
+  measure: amount_spend_last_month {
+    type: sum
+    sql: ${amount_spend} ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
   measure: average_amount_spend {
     type: average
     sql: ${amount_spend} ;;
   }
 
-  measure: impression {
+  measure: frequency {
+    type: sum
+    sql: ${TABLE}.frequency ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: frequency_last_month {
+    type: sum
+    sql: ${TABLE}.frequency ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: impressions {
     type: sum
     sql: ${TABLE}.impression ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: impressions_last_month {
+    type: sum
+    sql: ${TABLE}.impression ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: reach {
+    type: sum
+    sql: ${TABLE}.reach ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: reach_last_month {
+    type: sum
+    sql: ${TABLE}.reach ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: page_visit {
+    type: sum
+    sql: ${TABLE}.page_visit ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: page_visit_last_month {
+    type: sum
+    sql: ${TABLE}.page_visit ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
   }
 
   measure: clicks {
     type: sum
     sql: ${TABLE}.clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: clicks_last_month {
+    type: sum
+    sql: ${TABLE}.clicks ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: post_comments {
+    type: sum
+    sql: ${TABLE}.post_comments ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: post_comments_last_month {
+    type: sum
+    sql: ${TABLE}.post_comments ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
+  }
+
+  measure: post_share {
+    type: sum
+    sql: ${TABLE}.post_share ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
+
+  measure: post_share_last_month {
+    type: sum
+    sql: ${TABLE}.post_share ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    filters: [timestamp_date: "1 month ago"]
   }
 
   measure:dash_nav3 {
@@ -134,6 +220,9 @@ view: social_performance1 {
             <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
+            <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:  #2AAA8A"  href="">Campaign</a>
 
 
 
