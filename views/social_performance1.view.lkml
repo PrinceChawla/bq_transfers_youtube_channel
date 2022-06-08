@@ -85,10 +85,25 @@ view: social_performance1 {
     type: string
     sql: ${TABLE}.state ;;
   }
-  measure: count {
-    type: count
-    drill_fields: []
+
+  dimension: ad_set_name {
+    type: string
+    sql: ${TABLE}.ad_set_name ;;
   }
+
+  dimension: ad_title {
+    type: string
+    sql: ${TABLE}.ad_title ;;
+  }
+
+  dimension: ad_name {
+    type: string
+    sql: ${TABLE}.ad_name ;;
+  }
+  # measure: count {
+  #   type: count
+  #   drill_fields: []
+  # }
 
   measure: total_amount_spend {
     type: sum
@@ -222,7 +237,7 @@ view: social_performance1 {
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
             <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="">Campaign</a>
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/383">Campaign</a>
 
 
 
