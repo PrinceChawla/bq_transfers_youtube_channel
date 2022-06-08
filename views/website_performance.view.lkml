@@ -110,6 +110,17 @@ view: website_performance {
     type: count
     sql: ${TABLE}.session_id ;;
   }
+
+  measure:sessions_per_visitors {
+    type: sum
+    sql: ${TABLE}.sessions_per_visitors ;;
+  }
+
+  measure:bounce_rate {
+    type: sum
+    sql: ${TABLE}.bounce_rate ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  }
   measure: sessions_last_month {
     type: count
     sql: ${TABLE}.session_id ;;
