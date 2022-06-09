@@ -185,17 +185,34 @@ view: website_performance {
     type: string
     sql: ${TABLE}.gender ;;
     drill_fields: [age_group,unique_users]
-    link: {
-      label: "By age Group"
-      url: "
-      {% assign vis_config = '{
-      \"value_labels\":\"labels\",\"label_type\":\"per\",\"inner_radius\":45,\"custom_color_enabled\":true,\"show_single_value_title\":true,\"show_comparison\":true,\"comparison_type\":\"progress_percentage\",\"comparison_reverse_colors\":false,\"show_comparison_label\":true,\"enable_conditional_formatting\":true,\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"single_value_title\":\"Sessions\",\"comparison_label\":\"Sessions Last Month\",\"conditional_formatting\":[{\"type\":\"greater than\",\"value\":0,\"background_color\":\"#2AAA8A\",\"font_color\":\"#ffffff\",\"color_application\":{\"collection_id\":\"6c27c30e-5523-4080-82ae-272146e699d0\",\"palette_id\":\"25b877bc-c7a8-4ed0-a0ef-5ba64ca3658d\"},\"bold\":false,\"italic\":false,\"strikethrough\":false,\"fields\":null}],\"type\":\"looker_pie\",\"defaults_version\":1,\"series_types\"
-      }' %}
-      {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
-    }
+    # link: {
+    #   label: "By age Group"
+    #   url: "
+    #   {% assign vis_config = '{
+    # \"value_labels\":\"labels\",\"label_type\":\"per\",\"inner_radius\":45,\"custom_color_enabled\":true,\"show_single_value_title\":true,\"show_comparison\":true,\"comparison_type\":\"progress_percentage\",\"comparison_reverse_colors\":false,\"show_comparison_label\":true,\"enable_conditional_formatting\":true,\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"single_value_title\":\"Sessions\",\"comparison_label\":\"Sessions Last Month\",\"conditional_formatting\":[{\"type\":\"greater than\",\"value\":0,\"background_color\":\"#2AAA8A\",\"font_color\":\"#ffffff\",\"color_application\":{\"collection_id\":\"6c27c30e-5523-4080-82ae-272146e699d0\",\"palette_id\":\"25b877bc-c7a8-4ed0-a0ef-5ba64ca3658d\"},\"bold\":false,\"italic\":false,\"strikethrough\":false,\"fields\":null}],\"type\":\"looker_pie\",\"defaults_version\":1,\"series_types\":{}
+    #   }' %}
+    #   {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    # }
 
   }
+dimension: landing_page {
+  type: string
+  sql: ${TABLE}.landing_page ;;
+}
+dimension: medium {
+  type: string
+  sql: ${TABLE}.medium ;;
+}
 
+measure: active_session {
+  type: sum
+  sql: ${TABLE}.active_session ;;
+}
+
+measure: goal_1_initiate_rx_define {
+  type: sum
+  sql: ${TABLE}.goal_1_initiate_rx_define ;;
+}
 
   dimension_group: timestamp {
     type: time
