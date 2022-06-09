@@ -14,6 +14,10 @@ view: media_performance {
   dimension: campaign {
     type: string
     sql: ${TABLE}.campaign ;;
+    link: {
+      label: "Tabular Data"
+      url: "https://mediaagility.looker.com/looks/333"
+    }
   }
 
   dimension: device {
@@ -25,7 +29,7 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.impressions ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    drill_fields: [impressions,Social_Media]
+    drill_fields: [impressions,Social_Media,region]
     link: {
       label: "Impressions by Channel"
       url: "
@@ -33,6 +37,14 @@ view: media_performance {
       \"show_value_labels\":true,\"font_size\":12,\"type\":\"looker_donut_multiples\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_view_names\":false,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"limit_displayed_rows\":false,\"legend_position\":\"center\",\"point_style\":\"none\",\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
       }' %}
       {{ link }}&fields=media_performance.impressions,media_performance.Social_Media&pivots=media_performance.Social_Media&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    }
+    link: {
+      label: "Impressions by Region"
+      url: "
+      {% assign vis_config = '{
+      \"map\":\"usa\",\"map_projection\":\"\",\"show_view_names\":false,\"quantize_colors\":true,\"colors\":[\"#2AAA8A\",\"#50C878\",\"#93C572\",\"#AFE1AF\"],\"empty_color\":\"#DEDEDE\",\"type\":\"looker_geo_choropleth\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"limit_displayed_rows\":false,\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
+      }' %}
+      {{ link }}}&fields=media_performance.region,media_performance.impressions&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
     }
     # html: {% if value > 8700000 %}
 
@@ -169,6 +181,16 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+    drill_fields: [region,clicks]
+    link: {
+      label: "Clicks by Region"
+      url: "
+      {% assign vis_config = '{
+      \"map\":\"usa\",\"map_projection\":\"\",\"show_view_names\":false,\"quantize_colors\":false,\"colors\":[\"#AFE1AF\",\"#50C878\",\"#93C572\",\"#2AAA8A\"],\"empty_color\":\"#DEDEDE\",\"type\":\"looker_geo_choropleth\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"limit_displayed_rows\":false,\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
+      }' %}
+      {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    }
+
   }
   measure: clicks_final {
     type: number

@@ -48,6 +48,7 @@ view: campaign {
   measure: total_session_with_event {
     type: sum
     sql: ${session_with_event} ;;
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
   }
 
   measure: average_session_with_event {
@@ -149,6 +150,7 @@ view: campaign {
   measure: Users {
     type: sum
     sql: ${TABLE}.Users ;;
+   value_format:"[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
   }
   measure: Users_last_week {
     type: sum
@@ -171,6 +173,7 @@ view: campaign {
   }
   measure: TotalEvent {
     type: sum
+    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
     sql:  ${TABLE}.TotalEvent ;;
   }
   measure: Sessions {
@@ -284,6 +287,19 @@ measure: BounceRate {
     type: number
     value_format_name: percent_2
     sql: ${Total_onepage_visits_last_month}/${Total_entrancevisits_last_month}/100 ;;
+    # html: {% if value > 0 %}
+
+    # <p style="color: #2AAA8A">{{ rendered_value }} ▲ </p>
+    # {% elsif value <0 %}
+    # <p style="color: #FF0000">{{ rendered_value }} ▼ </p>
+    # {% else %}
+    # <p style="color: #000000">{{ rendered_value }}</p>
+    # {% endif %} ;;
+  }
+  measure: Change_Bounce_rate {
+    type: number
+    value_format_name: percent_2
+    sql: (${BounceRate} - ${BounceRate_lastmonth})/100;;
     html: {% if value > 0 %}
 
     <p style="color: #2AAA8A">{{ rendered_value }} ▲ </p>
