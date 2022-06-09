@@ -29,14 +29,14 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.impressions ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    drill_fields: [impressions,Social_Media,region]
+    drill_fields: [impressions,Social_Media,region,campaign]
     link: {
-      label: "Impressions by Channel"
+      label: "Impressions by Social Media and Campaign"
       url: "
       {% assign vis_config = '{
-      \"show_value_labels\":true,\"font_size\":12,\"type\":\"looker_donut_multiples\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_view_names\":false,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"limit_displayed_rows\":false,\"legend_position\":\"center\",\"point_style\":\"none\",\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
+      \"show_view_names\":false,\"show_row_numbers\":false,\"transpose\":false,\"truncate_text\":true,\"hide_totals\":false,\"hide_row_totals\":false,\"size_to_fit\":true,\"table_theme\":\"white\",\"limit_displayed_rows\":false,\"enable_conditional_formatting\":false,\"header_text_alignment\":\"left\",\"header_font_size\":\"12\",\"rows_font_size\":\"12\",\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"show_sql_query_menu_options\":false,\"show_totals\":true,\"show_row_totals\":true,\"truncate_header\":true,\"series_cell_visualizations\":{\"media_performance.impressions\":{\"is_active\":false}},\"series_text_format\":{\"media_performance.campaign\":{\"align\":\"left\"},\"media_performance.impressions\":{\"align\":\"left\"},\"media_performance.Social_Media\":{\"align\":\"left\"}},\"header_font_color\":\"#FFF\",\"header_background_color\":\"#2AAA8A\",\"type\":\"looker_grid\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
       }' %}
-      {{ link }}&fields=media_performance.impressions,media_performance.Social_Media&pivots=media_performance.Social_Media&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+      {{ link }}&fields=media_performance.campaign,media_performance.impressions,media_performance.Social_Media&pivots=media_performance.Social_Media&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
     }
     link: {
       label: "Impressions by Region"
@@ -131,7 +131,7 @@ view: media_performance {
       label: "By Social media and campaign"
       url: "
       {% assign vis_config = '{
-      \"show_view_names\":false,\"show_row_numbers\":false,\"transpose\":false,\"truncate_text\":true,\"hide_totals\":false,\"hide_row_totals\":false,\"size_to_fit\":true,\"table_theme\":\"white\",\"limit_displayed_rows\":false,\"enable_conditional_formatting\":false,\"header_text_alignment\":\"left\",\"header_font_size\":\"12\",\"rows_font_size\":\"12\",\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"show_sql_query_menu_options\":false,\"show_totals\":true,\"show_row_totals\":true,\"truncate_header\":true,\"series_cell_visualizations\":{\"media_performance.Cost\":{\"is_active\":false}},\"series_text_format\":{\"media_performance.Cost\":{\"align\":\"left\"},\"media_performance.campaign\":{\"align\":\"left\"},\"media_performance.Social_Media\":{\"bg_color\":\"#2AAA8A\",\"align\":\"left\"}},\"header_font_color\":\"#FFFFFF\",\"header_background_color\":\"#2AAA8A\",\"type\":\"looker_grid\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
+      \"show_view_names\":false,\"show_row_numbers\":false,\"transpose\":false,\"truncate_text\":true,\"hide_totals\":false,\"hide_row_totals\":false,\"size_to_fit\":true,\"table_theme\":\"white\",\"limit_displayed_rows\":false,\"enable_conditional_formatting\":false,\"header_text_alignment\":\"left\",\"header_font_size\":\"12\",\"rows_font_size\":\"12\",\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"show_sql_query_menu_options\":false,\"show_totals\":true,\"show_row_totals\":true,\"truncate_header\":true,\"series_cell_visualizations\":{\"media_performance.Cost\":{\"is_active\":false}},\"series_text_format\":{\"media_performance.Cost\":{\"align\":\"left\"},\"media_performance.campaign\":{\"align\":\"left\"},\"media_performance.Social_Media\":{\"bg_color\":\"#2AAA8A\",\"align\":\"left\"}},\"header_font_color\":\"#FFFFFF\",\"header_background_color\":\"#2AAA8A\",\"type\":\"looker_grid\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":true,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
       }' %}
       {{ link }}&pivots=media_performance.Social_Media&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
     }
@@ -173,7 +173,7 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    drill_fields: [region,clicks]
+    drill_fields: [region,clicks,Social_Media,campaign]
     link: {
       label: "Clicks by Region"
       url: "
@@ -182,7 +182,14 @@ view: media_performance {
       }' %}
       {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
     }
-
+    link: {
+      label: "Clicks by Social Media and Campaign"
+      url: "
+      {% assign vis_config = '{
+      \"show_view_names\":false,\"show_row_numbers\":false,\"transpose\":false,\"truncate_text\":false,\"hide_totals\":false,\"hide_row_totals\":false,\"size_to_fit\":true,\"table_theme\":\"white\",\"limit_displayed_rows\":false,\"enable_conditional_formatting\":false,\"header_text_alignment\":\"left\",\"header_font_size\":\"12\",\"rows_font_size\":\"12\",\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"show_sql_query_menu_options\":false,\"show_totals\":true,\"show_row_totals\":true,\"truncate_header\":true,\"series_cell_visualizations\":{\"media_performance.clicks\":{\"is_active\":false}},\"series_text_format\":{\"media_performance.campaign\":{\"align\":\"left\"},\"media_performance.clicks\":{\"align\":\"left\"}},\"header_font_color\":\"#FFF\",\"header_background_color\":\"#2AAA8A\",\"type\":\"looker_grid\",\"x_axis_gridlines\":false,\"y_axis_gridlines\":true,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"defaults_version\":1,\"series_types\":{}
+      }' %}
+      {{ link }}&fields=media_performance.Social_Media,media_performance.campaign,media_performance.clicks&pivots=media_performance.Social_Media&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    }
   }
   measure: clicks_final {
     type: number
