@@ -184,6 +184,16 @@ view: website_performance {
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
+    drill_fields: [age_group,unique_users]
+    link: {
+      label: "By age Group"
+      url: "
+      {% assign vis_config = '{
+      \"value_labels\":\"labels\",\"label_type\":\"per\",\"inner_radius\":45,\"custom_color_enabled\":true,\"show_single_value_title\":true,\"show_comparison\":true,\"comparison_type\":\"progress_percentage\",\"comparison_reverse_colors\":false,\"show_comparison_label\":true,\"enable_conditional_formatting\":true,\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"single_value_title\":\"Sessions\",\"comparison_label\":\"Sessions Last Month\",\"conditional_formatting\":[{\"type\":\"greater than\",\"value\":0,\"background_color\":\"#2AAA8A\",\"font_color\":\"#ffffff\",\"color_application\":{\"collection_id\":\"6c27c30e-5523-4080-82ae-272146e699d0\",\"palette_id\":\"25b877bc-c7a8-4ed0-a0ef-5ba64ca3658d\"},\"bold\":false,\"italic\":false,\"strikethrough\":false,\"fields\":null}],\"type\":\"looker_pie\",\"defaults_version\":1,\"series_types\"
+      }' %}
+      {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    }
+
   }
 
 
@@ -218,6 +228,15 @@ view: website_performance {
   measure: unique_users {
     type: count
     sql: select 40;;
+    drill_fields: [site_interaction_by,count]
+    link: {
+      label: "Site Interaction BY Unique User"
+      url: "
+      {% assign vis_config = '{
+      \"x_axis_gridlines\":false,\"y_axis_gridlines\":false,\"show_view_names\":false,\"show_y_axis_labels\":true,\"show_y_axis_ticks\":true,\"y_axis_tick_density\":\"default\",\"y_axis_tick_density_custom\":5,\"show_x_axis_label\":true,\"show_x_axis_ticks\":true,\"y_axis_scale_mode\":\"linear\",\"x_axis_reversed\":false,\"y_axis_reversed\":false,\"plot_size_by_field\":false,\"trellis\":\"\",\"stacking\":\"\",\"limit_displayed_rows\":false,\"legend_position\":\"center\",\"point_style\":\"none\",\"show_value_labels\":false,\"label_density\":25,\"x_axis_scale\":\"auto\",\"y_axis_combined\":true,\"ordering\":\"none\",\"show_null_labels\":false,\"show_totals_labels\":false,\"show_silhouette\":false,\"totals_color\":\"#808080\",\"series_types\":{},\"series_colors\":{\"website_performance.count\":\"#2AAA8A\"},\"column_spacing_ratio\":0.2,\"type\":\"looker_bar\",\"defaults_version\":1,\"show_null_points\":true,\"interpolation\":\"linear\"
+      }' %}
+      {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+  }
   }
 
   measure: unique_user_last_month {
