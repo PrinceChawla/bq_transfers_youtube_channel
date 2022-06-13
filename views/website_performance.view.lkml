@@ -184,7 +184,7 @@ view: website_performance {
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
-    drill_fields: [age_group,unique_users]
+    # drill_fields: [age_group,unique_users]
     # link: {
     #   label: "By age Group"
     #   url: "
@@ -254,6 +254,15 @@ measure: goal_1_initiate_rx_define {
       }' %}
       {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
   }
+    # link: {
+    #   label: "By age Group"
+    #   url: "
+    #   {% assign vis_config = '{
+    #   \"value_labels\":\"labels\",\"label_type\":\"per\",\"inner_radius\":45,\"custom_color_enabled\":true,\"show_single_value_title\":true,\"show_comparison\":true,\"comparison_type\":\"progress_percentage\",\"comparison_reverse_colors\":false,\"show_comparison_label\":true,\"enable_conditional_formatting\":true,\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"single_value_title\":\"Sessions\",\"comparison_label\":\"Sessions Last Month\",\"conditional_formatting\":[{\"type\":\"greater than\",\"value\":0,\"background_color\":\"#2AAA8A\",\"font_color\":\"#ffffff\",\"color_application\":{\"collection_id\":\"6c27c30e-5523-4080-82ae-272146e699d0\",\"palette_id\":\"25b877bc-c7a8-4ed0-a0ef-5ba64ca3658d\"},\"bold\":false,\"italic\":false,\"strikethrough\":false,\"fields\":null}],\"type\":\"looker_pie\",\"defaults_version\":1,\"series_types\":{}
+    #   }' %}
+    #   {{ link }}&fields=website_performance.age_group,website_performance.unique_users&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    # }
+
   }
 
   measure: unique_user_last_month {
@@ -270,7 +279,15 @@ measure: goal_1_initiate_rx_define {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [age_group,unique_users]
+    link: {
+      label: "By age Group"
+      url: "
+      {% assign vis_config = '{
+      \"value_labels\":\"labels\",\"label_type\":\"per\",\"inner_radius\":45,\"custom_color_enabled\":true,\"show_single_value_title\":true,\"show_comparison\":true,\"comparison_type\":\"progress_percentage\",\"comparison_reverse_colors\":false,\"show_comparison_label\":true,\"enable_conditional_formatting\":true,\"conditional_formatting_include_totals\":false,\"conditional_formatting_include_nulls\":false,\"single_value_title\":\"Sessions\",\"comparison_label\":\"Sessions Last Month\",\"conditional_formatting\":[{\"type\":\"greater than\",\"value\":0,\"background_color\":\"#2AAA8A\",\"font_color\":\"#ffffff\",\"color_application\":{\"collection_id\":\"6c27c30e-5523-4080-82ae-272146e699d0\",\"palette_id\":\"25b877bc-c7a8-4ed0-a0ef-5ba64ca3658d\"},\"bold\":false,\"italic\":false,\"strikethrough\":false,\"fields\":null}],\"type\":\"looker_pie\",\"defaults_version\":1,\"series_types\":{}
+      }' %}
+      {{ link }}&fields=website_performance.age_group,website_performance.unique_users&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
+    }
   }
   measure: test_count {
     sql: ${count} ;;
@@ -366,8 +383,7 @@ measure: goal_1_initiate_rx_define {
       <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/367">Media Performance</a>
       <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
 
-      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/379">Social Performance</a>
-        <a style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+
                    <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:  #2AAA8A"  href="https://mediaagility.looker.com/dashboards/383">Campaign</a>
 
 
