@@ -40,6 +40,7 @@ explore: website_performance {
 
 explore: media_performance {}
 explore: user_journey {}
+explore: user_journey_1 {}
 
 
 datagroup: default {
