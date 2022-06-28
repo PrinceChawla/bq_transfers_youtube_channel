@@ -92,7 +92,7 @@ view: employee {
   dimension: Editdetails {
     type: string
     sql: "1";;
-    html: <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" width="40" height="40"/> ;;
+    html: <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" width="20" height="20"/> ;;
     action: {
 
       label: "Insert/Update"
@@ -206,7 +206,32 @@ view: employee {
     ]
     sql: ${TABLE}.Record_created_at ;;
   }
+  measure:dash_nav3 {
+    view_label: "Session"
+    group_label: "Dashboard Navigation "
+    label: "Navigation Bar Looker Actions"
+    type: string
+    sql: "";;
+    html:
+    <nav style="font-size: 18px; color: #4285F4">
+<div style>
+    <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/426">Conditional Drill</a>
 
+      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://mediaagility.looker.com/dashboards/427">Looker Actions</a>
+      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+
+
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color: #2AAA8A"  href="https://mediaagility.looker.com/dashboards/424">Visual Drill</a>
+      <a  style="color: #ffffff; padding: 1px 2px; border-top: solid 1px #ffffff border-left: solid 1px #ffffff; border-right: solid 1px #ffffff; border-radius: 5px 5px 0 0; float: center; line-height: 1.1px; font-weight: bold;" href="#home"> </a>
+
+
+      <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #ffffff;color:  #2AAA8A"  href="https://mediaagility.looker.com/dashboards/423">Timezone</a>
+
+
+      </div>;;
+  }
   measure: count {
     type: count
     drill_fields: [id, name]
