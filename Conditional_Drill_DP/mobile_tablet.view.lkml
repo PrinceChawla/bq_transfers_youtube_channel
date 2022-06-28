@@ -154,8 +154,27 @@ measure: country1 {
   type: string
   sql: ${country} ;;
   required_fields: [country]
-  drill_fields: [os,device,social_platform]
+  drill_fields: [device,count]
+  link: {
+    label: "Drill into {{value}}"
+    url: "{% if mobile_tablet.country._value == 'USA' %}
+    {{link}}&fields=mobile_tablet.USA*&toggle=dat,pik,vis&limit=5000
+    {% elsif mobile_tablet.country._value == 'UK' %}
+    {{link}}&fields=mobile_tablet.UK*&toggle=dat,pik,vis&limit=5000
+    {% else %}
+    {{link}}&fields=mobile_tablet.empty*
+    {% endif %}"
+  }
 }
+  set: empty {
+    fields: []
+  }
+  set: USA {
+    fields: [device,count]
+  }
+  set: UK {
+    fields: [device,average_impressions]
+  }
 measure: count {
   type: count
   drill_fields: []
