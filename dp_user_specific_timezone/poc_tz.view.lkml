@@ -162,7 +162,7 @@ view: poc_tz {
   dimension: nerve {
     label: "Converted Timezone"
     type: date_time
-    sql:  DATETIME(((TIMESTAMP(${nerve_log_timestamp_time}))), {{Timezone._parameter_value}}) ;;
+    sql:  DATETIME(((TIMESTAMP(${nerve_log_timestamp_time}))),  "{{ _user_attributes['timezone'] }}") ;;
   }
   dimension: outreach_id {
     type: string
@@ -247,10 +247,19 @@ view: poc_tz {
     suggest_explore: poc_tz
     suggest_dimension: Date_filter
   }
+  dimension: Raw_filter {
+    type: date_time
+    sql: TIMESTAMP(${conversation_start_test_date}) ;;
+  }
+  filter: raw {
+    type: date_time
+    suggest_explore: poc_tz
+    suggest_dimension: Date_filter
+  }
 
   dimension: difference {
     type: number
-    sql: TIMESTAMP_DIFF(TIMESTAMP(FORMAT_TIMESTAMP('%F %T', poc_tz.nerve_log_timestamp )) ,     TIMESTAMP(FORMAT_TIMESTAMP('%F %T', DATETIME(((TIMESTAMP((FORMAT_TIMESTAMP('%F %T', poc_tz.nerve_log_timestamp ))))), {{Timezone._parameter_value}}) )),HOUR) ;;
+    sql: TIMESTAMP_DIFF(TIMESTAMP(FORMAT_TIMESTAMP('%F %T', poc_tz.nerve_log_timestamp )) ,     TIMESTAMP(FORMAT_TIMESTAMP('%F %T', DATETIME(((TIMESTAMP((FORMAT_TIMESTAMP('%F %T', poc_tz.nerve_log_timestamp ))))),  "{{ _user_attributes['timezone'] }}") )),HOUR) ;;
   }
 
   dimension: start_filter {
@@ -271,12 +280,12 @@ view: poc_tz {
   }
   dimension: check {
     type: yesno
-    sql:{%condition date_filter%} ${Date_filter} {% endcondition %}
+    sql:{%condition raw %} TIMESTAMP(${Raw_filter}) {% endcondition %}
           AND
           (
-          ${nerve} > ${start_filter}
+          TIMESTAMP(${nerve}) > TIMESTAMP(${start_filter})
           AND
-          ${nerve} < ${end_filter}
+          TIMESTAMP(${nerve}) < TIMESTAMP(${end_filter})
           )
           ;;
   }
