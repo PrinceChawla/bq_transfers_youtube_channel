@@ -1,7 +1,7 @@
-connection: "looker_to_bq"
+connection: "dv-looker-poc"
 
 # include all the views
-include: "/views/**/*.view"
+include: "/looker_to_bq_sg/t_customer.view.lkml"
 
 
 datagroup: looker_to_bq_shaila_default_datagroup {
@@ -13,6 +13,6 @@ persist_with: looker_to_bq_shaila_default_datagroup
 
 explore: t_customer {}
 
-explore: mobile_tablet_test {}
+# explore: mobile_tablet_test {}
 
-explore: p_looker_timezone_test {}
+# explore: p_looker_timezone_test {}

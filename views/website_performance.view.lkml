@@ -153,6 +153,13 @@ view: website_performance {
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     filters: [timestamp_date: "15 days ago"]
   }
+
+  # measure:bounce_rate_2_month_ago {
+  #   type: sum
+  #   sql: ${TABLE}.bounce_rate ;;
+  #   value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
+  #   filters: [timestamp_date: "25 days ago"]
+  # }
   measure: sessions_last_month {
     type: count
     sql: ${TABLE}.session_id ;;
