@@ -58,7 +58,7 @@ view: website_performance {
     type: sum
     sql: ${TABLE}.engagements;;
      value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "2 month ago"]
   }
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
@@ -128,7 +128,7 @@ view: website_performance {
     type: sum
     sql: ${TABLE}.page_views ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "2 month ago"]
   }
 
   measure: session_id {
@@ -164,7 +164,7 @@ view: website_performance {
     type: count
     sql: ${TABLE}.session_id ;;
     # value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "2 month ago"]
   }
 
   dimension: site_interaction_by {

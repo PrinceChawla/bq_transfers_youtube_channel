@@ -147,6 +147,20 @@ view: user_journey_1 {
     type: count
     drill_fields: []
   }
+  measure: Exit {
+    type:sum
+    sql: ${TABLE}.Exit ;;
+    }
+
+    dimension: exit_1 {
+      type: string
+
+    }
+
+  # measure: exit_count {
+  #   type: count
+  #   sql: ${TABLE}.Exit ;;
+  # }
 
 measure:dash_nav3 {
 view_label: "Session"
