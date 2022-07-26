@@ -70,6 +70,21 @@ measure: average_impressions {
   sql: ${impressions} ;;
 }
 
+measure:Test {
+  view_label: "Session"
+  group_label: "Dashboard Navigation External"
+  label: "Navigation Bar GCP"
+  type: string
+  sql: "";;
+  html:
+    <nav style="font-size: 18px; color: #4285F4">
+<div style>
+    <a style="padding: 5px 15px; border-top: solid 1px #AEC8C1; border-left: solid 1px #AEC8C1; border-right: solid 1px #AEC8C1; border-bottom: solid 1px #AEC8C1; border-radius: 5px 5px 5px 5px;  float: center; line-height: 40px; font-weight: bold; background-color: #2AAA8A;color: white"  href="https://console.cloud.google.com/monitoring/dashboards/resourceList/bigquery_dataset?project=mlconsole-poc&timeDomain=6w">GCP</a>
+
+
+
+    </div>;;
+}
 # Dates and timestamps can be represented in Looker using a dimension group of type: time.
 # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 

@@ -26,3 +26,9 @@ visualization: {
   label: "treemap"
   file: "custom.js"
 }
+
+visualization: {
+  id: "GCPVisualization"
+  label: "Line"
+  file: "GCP.js"
+}
