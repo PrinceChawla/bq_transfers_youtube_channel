@@ -1,7 +1,7 @@
 - dashboard: looker_actions
   title: Looker Actions
   layout: newspaper
-  preferred_viewer: dashboards-next
+  preferred_viewer: dashboards
   description: ''
   preferred_slug: NBGQBnaVdFKYDKp7NKCpJJ
   elements:
