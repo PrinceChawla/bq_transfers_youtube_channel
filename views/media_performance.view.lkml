@@ -214,7 +214,7 @@ view: media_performance {
     type: sum
     sql: ${TABLE}.Clicks ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "2 month ago"]
 }
 
 measure: percentage_increase {

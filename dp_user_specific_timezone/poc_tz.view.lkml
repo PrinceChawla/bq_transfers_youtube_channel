@@ -162,7 +162,7 @@ view: poc_tz {
   dimension: nerve {
     label: "Converted Timezone"
     type: date_time
-    sql:  DATETIME(((TIMESTAMP(${nerve_log_timestamp_time}))),  "{{ _user_attributes['timezone'] }}") ;;
+    sql:  TIMESTAMP(DATETIME(((TIMESTAMP(${nerve_log_timestamp_time}))),  "{{ _user_attributes['timezone'] }}")) ;;
   }
   dimension: outreach_id {
     type: string
@@ -247,15 +247,10 @@ view: poc_tz {
     suggest_explore: poc_tz
     suggest_dimension: Date_filter
   }
-  dimension: Raw_filter {
-    type: date_time
-    sql: TIMESTAMP(${conversation_start_test_date}) ;;
-  }
-  filter: raw {
-    type: date_time
-    suggest_explore: poc_tz
-    suggest_dimension: Date_filter
-  }
+  # filter: raw {
+  #   type: date
+  #   sql: ${conversation_start_test_date} > {% date_start %} ;;
+  # }
 
   dimension: difference {
     type: number
@@ -280,16 +275,19 @@ view: poc_tz {
   }
   dimension: check {
     type: yesno
-    sql:{%condition raw %} TIMESTAMP(${Raw_filter}) {% endcondition %}
-          AND
+    sql:{%condition date_filter%} ${Date_filter} {% endcondition %}
+         AND
           (
-          TIMESTAMP(${nerve}) > TIMESTAMP(${start_filter})
+          ${nerve} > ${start_filter}
           AND
-          TIMESTAMP(${nerve}) < TIMESTAMP(${end_filter})
-          )
-          ;;
+          ${nerve} < ${end_filter}
+          );;
   }
 
+  # dimension: check_raw {
+  #   type: yesno
+  #   sql: {%condition raw%} ${Raw_filter} {% endcondition %};;
+  # }
   parameter: Check_test {
     type: string
     allowed_value: {
@@ -326,5 +324,18 @@ view: poc_tz {
   measure: count {
     type: count
     drill_fields: []
+  }
+  dimension: show_my_dimension_filter {
+
+    html: {% if _filters['raw'] IS NOT "NULL" %} {{_filters['raw']}}
+
+      {% else %} no filter value {% endif %};;
+
+    sql: 'this does nothing' ;;
+
+  }
+  dimension: Test3 {
+    type: string
+    sql: ${show_my_dimension_filter};;
   }
 }
