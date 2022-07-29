@@ -1,6 +1,22 @@
 view: p_looker_timezone_test {
 
-  sql_table_name: `mlconsole-poc.looker_db.p_looker_timezone_test` ;;
+  sql_table_name: looker_db.p_looker_timezone_test ;;
+
+
+  filter: reporting_d {
+    type: date
+    sql: conversation_start_date >= date(timestamp_sub({% date_start reporting_d %}, interval 1 day))
+    and conversation_start_date <= date({% date_end reporting_d %})
+    and {% condition %} ${nerve_log_timestamp_raw} {% endcondition %} ;;
+    # convert_tz: no
+  }
+
+  # dimension_group: reporting_time {
+  #   type: time
+  #   timeframes: [raw]
+  #   sql: TIMESTAMP(DATETIME(${TABLE}.nerve_log_timestamp, '{{_query._query_timezone}}')) ;;
+  #   convert_tz: no
+  # }
 
   dimension: call_type {
     type: string
@@ -88,7 +104,6 @@ view: p_looker_timezone_test {
 
   dimension_group: nerve_log_timestamp {
     type: time
-    # datatype: datetime
     timeframes: [
       raw,
       time,
@@ -99,22 +114,13 @@ view: p_looker_timezone_test {
       year
     ]
     sql: ${TABLE}.nerve_log_timestamp ;;
-    convert_tz: no
+    convert_tz: yes
   }
 
-  dimension_group: reporting {
+  dimension_group: reporting_time {
     type: time
-    #datatype: datetime
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: TIMESTAMP(DATETIME(${TABLE}.nerve_log_timestamp, {{user_timezone._parameter_value}})) ;;
+    timeframes: [raw]
+    sql: TIMESTAMP(DATETIME(${TABLE}.nerve_log_timestamp, '{{_query._query_timezone}}')) ;;
     convert_tz: no
   }
 
