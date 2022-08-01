@@ -13,7 +13,7 @@
     fields: [mobile_tablet.country, mobile_tablet.count, mobile_tablet.country1]
     sorts: [mobile_tablet.count desc]
     limit: 500
-    query_timezone: America/New_York
+    query_timezone: UTC
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -54,7 +54,7 @@
     type: single_value
     fields: [mobile_tablet.dash_nav3]
     limit: 500
-    query_timezone: America/New_York
+    query_timezone: UTC
     custom_color_enabled: true
     show_single_value_title: false
     show_comparison: false
