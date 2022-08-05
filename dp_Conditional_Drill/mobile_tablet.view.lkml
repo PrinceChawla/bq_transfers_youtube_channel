@@ -121,7 +121,13 @@ dimension: search_keyword {
   type: string
   sql: ${TABLE}.search_keyword ;;
 }
-
+parameter: rank {
+  type: string
+}
+dimension: Test1 {
+  type: string
+  sql: {% parameter rank %} ;;
+}
 dimension: sessions {
   type: number
   sql: ${TABLE}.sessions ;;

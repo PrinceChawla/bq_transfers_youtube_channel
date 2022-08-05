@@ -32,3 +32,9 @@ visualization: {
   label: "Line"
   file: "GCP.js"
 }
+
+visualization: {
+  id: "Report table visualization"
+  label: "Report"
+  file: "report.js"
+}
