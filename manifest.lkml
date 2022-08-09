@@ -38,3 +38,9 @@ visualization: {
   label: "Report"
   file: "report.js"
 }
+
+visualization: {
+  id: "Box visualization"
+  label: "Box"
+  file: "Box.js"
+}

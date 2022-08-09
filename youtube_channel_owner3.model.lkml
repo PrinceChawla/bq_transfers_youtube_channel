@@ -11,7 +11,7 @@ explore: random_data {
   persist_with: default
 }
 
-
+explore: test1 {}
 
 explore: slot_events {
 join: slot_details {
