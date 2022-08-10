@@ -47,6 +47,14 @@ view: test1 {
     type: median
     sql: ${TABLE}.ML_price;;
   }
+  measure: Lower {
+    type: number
+    sql: ${ML_price_25_percentile} - 1.5*(${ML_price_25_percentile} - ${ML_price_75_percentile}) ;;
+  }
+  measure: upper {
+    type: number
+    sql: ${ML_price_75_percentile} + 1.5*(${ML_price_25_percentile} - ${ML_price_75_percentile}) ;;
+  }
   measure: average_actual_price {
     type: average
     sql: ${actual_price} ;;

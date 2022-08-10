@@ -175,7 +175,7 @@ measure: country1 {
   type: string
   sql: ${country} ;;
   required_fields: [country]
-  drill_fields: [device,count]
+  drill_fields: [device]
   link: {
     label: "Drill into {{value}}"
     url: "{% if mobile_tablet.country._value == 'USA' %}
@@ -188,7 +188,7 @@ measure: country1 {
   }
 }
   set: empty {
-    fields: []
+    fields: [device,count,average_impressions]
   }
   set: USA {
     fields: [device,count]
