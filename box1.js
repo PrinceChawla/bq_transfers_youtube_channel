@@ -1,12 +1,4 @@
-/**
- * AnyChart is lightweight robust charting library with great API and Docs, that works with your stack and has tons of chart types and features.
- *
- * Modules: core, theme-core, pie, theme-pie, cartesian, theme-cartesian, scatter, theme-scatter
- * Version: 8.8.0.1931 (2020-05-22)
- * License: https://www.anychart.com/buy/
- * Contact: sales@anychart.com
- * Copyright: AnyChart.com 2020. All rights reserved.
- */
+
 (function(global,factory){if(typeof module==='object'&&typeof module.exports==='object'){var wrapper=function(w){if(!w.document){throw Error('AnyChart requires a window with a document');}factory.call(w,w,w.document);try{w.acgraph.isNodeJS=Object.prototype.toString.call(global.process)=="[object process]";}catch(e){};return w.anychart;};module.exports=global.document?wrapper(global):wrapper;}else{factory.call(global,window,document)}})(typeof window!=='undefined'?window:this,function(window,document,opt_noGlobal){var $,_,$_=this.anychart;if($_&&(_=$_._)){$=$_.$}else{$={};_={}}if(!_.core){_.core=1;(function($){var ba,baa,caa,sa,Ea,daa,La,eaa,Sa,faa,Ya,gaa,vb,xb,Gb,Kb,Rb,Pb,Qb,dc,kc,sc,tc,wc,zc,Wb,paa,Tc,Vc,Wc,Xc,Yc,raa,$c,ud,zd,xaa,Dd,Ed,Fd,Gd,Kd,yaa,Hd,Td,Pd,Xd,Aaa,Ld,Jd,Me,Oe,Ue,ff,kf,qe,nf,of,pf,tf,Df,Af,Tf,Xf,Zf,$f,cg,eg,dg,fg,jg,lg,mg,og,rg,tg,vg,ug,sg,Bg,Ag,Dg,Hg,Haa,Ig,Kg,Ng,Pg,Rg,Sg,Tg,Og,Qg,Mg,Wg,Xg,Yg,$g,jh,hh,gh,rh,wh,xh,yh,zh,Ah,Bh,Ch,Dh,Eh,Gh,Hh,Ih,Nh,Oh,Ph,Qh,Rh,Sh,Th,ci,di,ei,fi,gi,hi,ii,ji,ki,li,mi,ni,oi,pi,qi,ri,Vh,bi,ti,xi,yi,zi,Bi,Ci,Kaa,Laa,Maa,Di,Fi,Ii,Ji,Ki,Oi,Pi,Qi,Ri,Si,Saa,Taa,
 dj,lj,nj,oj,sj,Vaa,rj,pj,qj,wj,Uaa,tj,Hi,Oaa,Naa,Waa,Sj,Tj,Uj,Xj,Yj,Zj,ak,ck,bk,Rj,fk,ok,Zb,Gi,uk,zk,Ck,eba,hba,Jk,pba,tba,$k,Cba,Dba,jl,kl,nl,ol,rl,tl,yl,xl,Bl,El,Gl,Jba,im,lm,nm,jm,qm,km,sm,um,Xa,Hm,Jm,Km,Lm,Nm,Um,Vm,Wm,Xm,$m,bn,kn,ln,mn,nn,pn,on,qn,rn,sn,An,Bn,Cn,Dn,Lba,In,Jn,Ln,Kn,Mn,Rn,Pn,On,Tn,Un,Nba,Oba,Pba,Wn,Vn,Xn,Yn,ho,ko,Tba,uo,No,So,Uba,To,Mm,Xo,Zo,fp,ep,Wba,Vba,Yba,mp,qp,rp,sp,$ba,wp,xp,aca,zp,Gp,Np,Op,ll,Vp,Wp,Zp,$p,bq,dq,eq,Jq,Kq,yq,Nq,Qq,Rq,lq,Iq,Hq,Gq,hr,mr,rr,sr,tr,bca,zr,Br,Cr,
 Er,dca,Fr,Gr,Hr,Kr,Ir,Jr,fca,Mr,Nr,Or,Qr,Rr,Tr,Wr,Yr,bs,ks,cs,ts,Bs,Cs,Ds,Gs,Hs,Is,Js,Ks,Ls,Ms,Ys,at,$s,bt,et,ct,jt,nca,kt,lt,mt,ot,pt,vt,wt,xt,yt,It,Jt,Kt,Lt,Mt,Dt,Nt,Ht,Ot,Pt,Rt,Wt,Xt,au,bu,cu,du,oca,eu,gu,iu,ju,pca,ru,su,rca,sca,Du,Fu,Gu,Hu,xu,tca,Iu,uca,uu,Ku,tu,Lu,Mu,Nu,Ru,Su,Tu,Uu,Vu,Wu,Xu,Zu,$u,bv,vca,cv,dv,ev,av,wca,xca,zca,yca,fv,iv,kv,mv,tv,ov,uv,vv,wv,xv,yv,qv,pv,rv,sv,Aca,Bca,zv,Av,Cv,Dv,Gv,Hv,Iv,Jv,Kv,Lv,Mv,Nv,Ov,Qv,Rv,Pv,Sv,Zv,bw,Cca,dw,jw,gw,ew,lw,hw,Yv,rw,sw,mw,tw,$v,iw,pw,uw,xw,yw,
