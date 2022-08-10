@@ -42,5 +42,5 @@ visualization: {
 visualization: {
   id: "Box visualization"
   label: "Box"
-  file: "Box.js"
+  file: "box1.js"
 }
