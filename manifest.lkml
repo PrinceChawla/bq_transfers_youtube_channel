@@ -41,6 +41,6 @@ visualization: {
 
 visualization: {
   id: "Box visualization"
-  label: "Box"
+  label: "New Box"
   file: "box1.js"
 }
