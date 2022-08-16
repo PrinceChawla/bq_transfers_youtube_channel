@@ -44,3 +44,8 @@ visualization: {
   label: "Box"
   file: "box1.js"
 }
+visualization: {
+  id: " Annotations visualization"
+  label: "Annotation"
+  file: "annotations.js"
+}
