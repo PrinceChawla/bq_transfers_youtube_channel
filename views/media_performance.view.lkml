@@ -141,7 +141,7 @@ view: media_performance {
     #value_format_name: usd_0
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: ${TABLE}.spend ;;
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
 
   }
 
@@ -252,7 +252,7 @@ measure: percentage_increase {
   measure: total_eligible_impressions_lastmonth {
     type: sum
     sql: ${TABLE}.total_eligible_impressions;;
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
   measure: total_onepage_visits {
     type: sum
@@ -261,7 +261,7 @@ measure: percentage_increase {
   measure: total_onepage_visits_last_month {
     type: sum
     sql: ${TABLE}.total_onepage_visits;;
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "2 month ago"]
   }
   measure: total_entrancevisits {
     type: sum
@@ -270,7 +270,7 @@ measure: percentage_increase {
   measure: total_entrancevisits_last_month {
     type: sum
     sql: ${TABLE}.total_entrancevisits;;
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
 
   measure: pages {

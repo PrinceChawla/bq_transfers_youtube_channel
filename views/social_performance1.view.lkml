@@ -133,7 +133,7 @@ view: social_performance1 {
     type: sum
     sql: ${TABLE}.frequency ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
 
   measure: impressions {
@@ -159,7 +159,7 @@ view: social_performance1 {
     type: sum
     sql: ${TABLE}.reach ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
 
   measure: page_visit {
@@ -211,7 +211,7 @@ view: social_performance1 {
     type: sum
     sql: ${TABLE}.post_share ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
 
   measure:dash_nav3 {
