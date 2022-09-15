@@ -172,7 +172,7 @@ view: social_performance1 {
     type: sum
     sql: ${TABLE}.page_visit ;;
     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
-    filters: [timestamp_date: "1 month ago"]
+    filters: [timestamp_date: "4 month ago"]
   }
 
   measure: clicks {
